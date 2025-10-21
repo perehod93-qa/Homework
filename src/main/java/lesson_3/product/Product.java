@@ -1,16 +1,17 @@
-package Lesson_3.Product;
+package lesson_3.product;
 
-public class Product {
-    String name;
-    String productionDate;
-    String manufacturer;
-    String countryOfOrigin;
-    double price;
-    boolean isReserved;
+import lesson_3.Item;
+
+public class Product extends Item {
+    private String productionDate;
+    private String manufacturer;
+    private String countryOfOrigin;
+    private double price;
+    private boolean isReserved;
 
     public Product(String name, String productionDate, String manufacturer,
                    String countryOfOrigin, double price, boolean isReserved) {
-        this.name = name;
+        super(name);
         this.productionDate = productionDate;
         this.manufacturer = manufacturer;
         this.countryOfOrigin = countryOfOrigin;
@@ -18,6 +19,7 @@ public class Product {
         this.isReserved = isReserved;
     }
 
+    @Override
     public void displayInfo() {
         System.out.println("Название: " + name);
         System.out.println("Дата производства: " + productionDate);
@@ -28,4 +30,3 @@ public class Product {
         System.out.println("---------------------------");
     }
 }
-

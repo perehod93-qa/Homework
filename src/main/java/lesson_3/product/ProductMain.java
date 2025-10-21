@@ -1,6 +1,6 @@
-package Lesson_3.Product;
+package lesson_3.product;
 
-public class Main {
+public class ProductMain {
     public static void main(String[] args) {
         Product[] productsArray = new Product[5];
 
