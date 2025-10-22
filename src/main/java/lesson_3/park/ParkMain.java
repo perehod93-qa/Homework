@@ -1,7 +1,5 @@
 package lesson_3.park;
 
-import lesson_3.park.Park;
-
 public class ParkMain {
     public static void main(String[] args) {
         Park amusementPark = new Park("Весёлый городок");
