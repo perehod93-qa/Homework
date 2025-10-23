@@ -9,18 +9,18 @@ public class Cat extends Animal {
     private boolean isFull;
 
     public Cat(String name) {
-        super(name, 200, 0); // коты не умеют плавать
+        super(name, 200, 0);
         this.isFull = false;
         catsCount++;
     }
 
     public void eat(Bowl bowl, int amount) {
-        if (bowl.decreaseFood(amount)) {
+        if (bowl.getFoodAmount() >= amount) {
+            bowl.decreaseFood(amount);
             isFull = true;
             System.out.println(name + " покушал и теперь сыт.");
         } else {
-            System.out.println(name + " остался голодным. Недостаточно еды.");
+            System.out.println(name + " остался голодным. Недостаточно еды ");
         }
     }
-
 }

@@ -34,5 +34,4 @@ public abstract class Animal {
             System.out.println(name + " не смог проплыть " + distance + " м.");
         }
     }
-
 }

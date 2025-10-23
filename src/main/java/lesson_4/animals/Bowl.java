@@ -10,13 +10,8 @@ public class Bowl {
         this.foodAmount = Math.max(foodAmount, 0);
     }
 
-    public boolean decreaseFood(int amount) {
-        if (amount <= foodAmount) {
-            foodAmount -= amount;
-            return true;
-        } else {
-            return false;
-        }
+    public void decreaseFood(int amount) {
+        foodAmount = Math.max(foodAmount - amount, 0);
     }
 
     public void addFood(int amount) {
@@ -25,5 +20,4 @@ public class Bowl {
             System.out.println("Добавлено " + amount + " еды. Сейчас в миске: " + foodAmount);
         }
     }
-
 }

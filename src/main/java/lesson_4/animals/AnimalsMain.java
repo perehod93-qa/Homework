@@ -10,7 +10,7 @@ public class AnimalsMain {
 
         Dog dog = new Dog("Бобик");
 
-        Bowl bowl = new Bowl(40);
+        Bowl bowl = new Bowl(20);
 
         for (Cat cat : cats) {
             cat.eat(bowl, 15);
