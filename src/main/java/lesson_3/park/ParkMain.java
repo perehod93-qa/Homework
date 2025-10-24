@@ -15,7 +15,6 @@ public class ParkMain {
         pokatushkiPark.addAttraction("Комната страха", "14:00 - 23:00", 400);
         pokatushkiPark.addAttraction("Карусель", "10:00 - 22:00", 250);
 
-
         amusementPark.showAttractions();
         System.out.println();
         pokatushkiPark.showAttractions();
