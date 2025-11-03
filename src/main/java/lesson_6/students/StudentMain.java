@@ -16,14 +16,16 @@ public class StudentMain {
         System.out.println("=== Исходный список студентов ===");
         students.forEach(System.out::println);
 
-        StudentService.removeLowPerformingStudents(students);
-        StudentService.promoteStudents(students);
+        StudentService studentService = new StudentService();
 
-        System.out.println("\n=== После отчисления и перевода ===");
+        studentService.removeLowPerformingStudents(students);
+        studentService.promoteStudents(students);
+
+        System.out.println("\n=== После удаления и перевода ===");
         students.forEach(System.out::println);
 
         System.out.println();
-        StudentService.printStudents(students, 2);
-        StudentService.printStudents(students, 4);
+        studentService.printStudents(students, 2);
+        studentService.printStudents(students, 4);
     }
 }

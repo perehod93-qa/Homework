@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class StudentService {
 
-    public static void removeLowPerformingStudents(Set<Student> students) {
+    public void removeLowPerformingStudents(Set<Student> students) {
         Iterator<Student> iterator = students.iterator();
         while (iterator.hasNext()) {
             Student student = iterator.next();
@@ -15,7 +15,7 @@ public class StudentService {
         }
     }
 
-    public static void promoteStudents(Set<Student> students) {
+    public void promoteStudents(Set<Student> students) {
         for (Student student : students) {
             if (student.getAverageGrade() >= 3) {
                 student.setCourse(student.getCourse() + 1);
@@ -23,7 +23,7 @@ public class StudentService {
         }
     }
 
-    public static void printStudents(Set<Student> students, int course) {
+    public void printStudents(Set<Student> students, int course) {
         System.out.println("Студенты на курсе " + course + ":");
         students.stream()
                 .filter(s -> s.getCourse() == course)
