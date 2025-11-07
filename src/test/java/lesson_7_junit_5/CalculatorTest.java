@@ -1,34 +1,42 @@
 package lesson_7_junit_5;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class CalculatorTest {
+class CalculatorTest {
+
+    private Calculator calculator;
+
+    @BeforeEach
+    void setUp() {
+        calculator = new Calculator();
+    }
 
     @Test
     void testAdd() {
-        assertEquals(7, Calculator.add(3, 4));
+        assertEquals(7, calculator.add(3, 4));
     }
 
     @Test
     void testSubtract() {
-        assertEquals(1, Calculator.subtract(5, 4));
+        assertEquals(1, calculator.subtract(5, 4));
     }
 
     @Test
     void testMultiply() {
-        assertEquals(12, Calculator.multiply(3, 4));
+        assertEquals(12, calculator.multiply(3, 4));
     }
 
     @Test
     void testDivide() {
-        assertEquals(2.0, Calculator.divide(8, 4));
+        assertEquals(2.0, calculator.divide(8, 4));
     }
 
     @Test
     void testDivideByZero() {
-        assertThrows(ArithmeticException.class, () -> Calculator.divide(5, 0));
+        assertThrows(ArithmeticException.class, () -> calculator.divide(5, 0));
     }
 }

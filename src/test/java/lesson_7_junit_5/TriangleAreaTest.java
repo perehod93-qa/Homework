@@ -1,19 +1,31 @@
 package lesson_7_junit_5;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class TriangleAreaTest {
+class TriangleAreaTest {
 
-    @Test
-    void testTriangleArea() {
-        assertEquals(10.0, TriangleArea.calculate(4, 5));
+    private TriangleArea triangleArea;
+
+    @BeforeEach
+    void setUp() {
+        triangleArea = new TriangleArea();
     }
 
     @Test
-    void testInvalidValues() {
-        assertThrows(IllegalArgumentException.class, () -> TriangleArea.calculate(-3, 5));
+    void testTriangleAreaValid() {
+        assertEquals(10.0, triangleArea.calculate(4.0, 5.0));
+    }
+
+    @Test
+    void testInvalidValuesThrows() {
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> triangleArea.calculate(-3.0, 5.0)
+        );
+        assertEquals("Основание и высота должны быть положительными", exception.getMessage());
     }
 }
