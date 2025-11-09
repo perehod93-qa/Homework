@@ -28,7 +28,6 @@ public class PostmanEchoTests {
     @Test
     public void testPostRawText() {
         String rawBody = "This is expected to be sent back as part of response body.";
-
         given()
                 .baseUri(BASE_URI)
                 .header("Content-Type", "text/plain")
@@ -58,7 +57,6 @@ public class PostmanEchoTests {
     @Test
     public void testPutRequest() {
         String rawBody = "This is expected to be sent back as part of response body.";
-
         given()
                 .baseUri(BASE_URI)
                 .header("Content-Type", "text/plain")
@@ -73,7 +71,6 @@ public class PostmanEchoTests {
     @Test
     public void testPatchRequest() {
         String rawBody = "This is expected to be sent back as part of response body.";
-
         given()
                 .baseUri(BASE_URI)
                 .header("Content-Type", "text/plain")
@@ -88,7 +85,6 @@ public class PostmanEchoTests {
     @Test
     public void testDeleteRequest() {
         String rawBody = "This is expected to be sent back as part of response body.";
-
         given()
                 .baseUri(BASE_URI)
                 .header("Content-Type", "text/plain")
