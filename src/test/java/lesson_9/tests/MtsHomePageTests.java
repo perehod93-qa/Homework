@@ -40,12 +40,13 @@ public class MtsHomePageTests extends BaseTest {
     @DisplayName("Проверка ссылки 'Подробнее о сервисе'")
     public void testMoreInfoLink() {
         steps.clickMoreInfo();
+        assertTrue(driver.getCurrentUrl().contains("https://www.mts.by/help/poryadok-oplaty-i-bezopasnost-internet-platezhey/"), "Не произошёл переход на страницу 'Подробнее'");
     }
 
     @Test
     @DisplayName("Заполнение формы оплаты и проверка кнопки 'Продолжить'")
     public void testFillPaymentForm() {
-        steps.fillPaymentForm("297777777", "10");
+        steps.fillPaymentForm("(29)777-77-77", "10");
         steps.clickContinue();
     }
 }
