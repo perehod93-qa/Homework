@@ -48,32 +48,21 @@ public class MtsHomePage {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(logo)).isDisplayed();
     }
 
-    /**
-     * Клик по ссылке "Подробнее" + проверка перехода по URL
-     */
     public void clickMoreInfo() {
         wait.until(ExpectedConditions.elementToBeClickable(moreInfoLink)).click();
-
         wait.until(ExpectedConditions.urlContains("help/poryadok-oplaty-i-bezopasnost-internet-platezhey"));
     }
 
-    /**
-     * Заполнение формы оплаты + проверка, что поля действительно заполнены
-     */
     public void fillPaymentForm(String phone, String amount) {
         wait.until(ExpectedConditions.elementToBeClickable(serviceTypeButton)).click();
-
         WebElement phoneField = wait.until(ExpectedConditions.visibilityOfElementLocated(phoneInput));
         WebElement amountField = wait.until(ExpectedConditions.visibilityOfElementLocated(amountInput));
-
         phoneField.clear();
         phoneField.sendKeys(phone);
         amountField.clear();
         amountField.sendKeys(amount);
-
         String actualPhone = phoneField.getAttribute("value");
         String actualAmount = amountField.getAttribute("value");
-
         if (!actualPhone.equals(phone) || !actualAmount.equals(amount)) {
             throw new AssertionError("Поля формы не заполнились корректно: "
                     + "ожидалось [" + phone + ", " + amount + "], "

@@ -15,7 +15,6 @@ public class MtsHomePageTests extends BaseTest {
 
     @BeforeEach
     public void setUpTest() {
-        // driver уже инициализирован в BaseTest.setUp()
         steps = new MtsHomeSteps(driver);
         steps.acceptCookies();
     }
