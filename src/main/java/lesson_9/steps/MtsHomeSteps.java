@@ -33,6 +33,10 @@ public class MtsHomeSteps {
         homePage.clickMoreInfo();
     }
 
+    public String getBreadcrumbThirdItemText() {
+        return homePage.getBreadcrumbThirdItemText();
+    }
+
     public void fillPaymentForm(String phone, String amount) {
         homePage.fillPaymentForm(phone, amount);
     }

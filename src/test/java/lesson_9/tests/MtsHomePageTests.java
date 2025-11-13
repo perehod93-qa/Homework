@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MtsHomePageTests extends BaseTest {
@@ -36,10 +37,15 @@ public class MtsHomePageTests extends BaseTest {
     }
 
     @Test
-    @DisplayName("Проверка ссылки 'Подробнее о сервисе'")
+    @DisplayName("Проверка ссылки 'Подробнее о сервисе' и навигационной цепочки")
     public void testMoreInfoLink() {
         steps.clickMoreInfo();
-        assertTrue(driver.getCurrentUrl().contains("https://www.mts.by/help/poryadok-oplaty-i-bezopasnost-internet-platezhey/"), "Не произошёл переход на страницу 'Подробнее'");
+        assertTrue(driver.getCurrentUrl()
+                        .contains("https://www.mts.by/help/poryadok-oplaty-i-bezopasnost-internet-platezhey/"),
+                "Не произошёл переход на страницу 'Подробнее'");
+        String breadcrumbText = steps.getBreadcrumbThirdItemText();
+        assertEquals("Оплата и безопасность интернет‑платежей", breadcrumbText,
+                "Текст третьего пункта навигационной цепочки некорректен");
     }
 
     @Test
