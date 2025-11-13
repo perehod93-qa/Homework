@@ -1,24 +1,36 @@
 package lesson_7_junit_5;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class FactorialTest {
+class FactorialTest {
+
+    private Factorial factorial;
+
+    @BeforeEach
+    void setUp() {
+        factorial = new Factorial();
+    }
 
     @Test
     void testFactorialOf5() {
-        assertEquals(120, Factorial.calculate(5));
+        assertEquals(120L, factorial.calculate(5));
     }
 
     @Test
     void testFactorialOf0() {
-        assertEquals(1, Factorial.calculate(0));
+        assertEquals(1L, factorial.calculate(0));
     }
 
     @Test
     void testNegativeNumber() {
-        assertThrows(IllegalArgumentException.class, () -> Factorial.calculate(-3));
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> factorial.calculate(-3)
+        );
+        assertEquals("Число не может быть отрицательным", exception.getMessage());
     }
 }

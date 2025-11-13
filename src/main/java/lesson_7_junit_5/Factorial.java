@@ -1,7 +1,8 @@
 package lesson_7_junit_5;
 
 public class Factorial {
-    public static long calculate(int n) {
+
+    public long calculate(int n) {
         if (n < 0) {
             throw new IllegalArgumentException("Число не может быть отрицательным");
         }

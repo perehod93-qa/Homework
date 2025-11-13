@@ -35,6 +35,11 @@ public class MtsHomePage {
     private final By phoneInput = By.xpath("//*[@id='connection-phone']");
     private final By amountInput = By.xpath("//*[@id='connection-sum']");
     private final By continueButton = By.xpath("//*[@id='pay-connection']/button");
+    private final By breadcrumbThirdItem = By.xpath("//*[@id=\"breadcrumbs\"]/div/div/div/div/ul/li[3]/span/span");
+
+    public String getBreadcrumbThirdItemText() {
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(breadcrumbThirdItem)).getText().trim();
+    }
 
     public void acceptCookies() {
         wait.until(ExpectedConditions.elementToBeClickable(cookieButton)).click();
