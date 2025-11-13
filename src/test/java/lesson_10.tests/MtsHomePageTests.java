@@ -37,12 +37,15 @@ public class MtsHomePageTests extends BaseTest {
     }
 
     @Test
-    @DisplayName("Проверка ссылки 'Подробнее о сервисе'")
+    @DisplayName("Проверка ссылки 'Подробнее о сервисе' и навигационной цепочки")
     public void testMoreInfoLink() {
         steps.clickMoreInfo();
         assertTrue(driver.getCurrentUrl()
                         .contains("https://www.mts.by/help/poryadok-oplaty-i-bezopasnost-internet-platezhey/"),
                 "Не произошёл переход на страницу 'Подробнее'");
+        String breadcrumbText = steps.getBreadcrumbThirdItemText();
+        assertEquals("Порядок оплаты и безопасность интернет платежей", breadcrumbText,
+                "Текст третьего пункта навигационной цепочки некорректен");
     }
 
     @Test

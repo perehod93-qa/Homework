@@ -34,6 +34,7 @@ public class MtsHomePage {
     private final By otherLogo = By.xpath("//*[@id='pay-section']/div/div/div[2]/section/div/div[2]/ul/li[5]/img");
 
     private final By moreInfoLink = By.xpath("//*[@id='pay-section']/div/div/div[2]/section/div/a");
+    private final By breadcrumbThirdItem = By.xpath("//*[@id=\"breadcrumbs\"]/div/div/div/div/ul/li[3]/span/span");
 
     private final By serviceTypeButton = By.xpath("//*[@id='pay-section']/div/div/div[2]/section/div/div[1]/div[1]/div[2]/button");
     private final By selectedServiceLabel = By.xpath("//*[@id=\"pay-section\"]/div/div/div[2]/section/div/div[1]/div[1]/div[2]/button/span[1]");
@@ -92,6 +93,10 @@ public class MtsHomePage {
     public void clickMoreInfo() {
         wait.until(ExpectedConditions.elementToBeClickable(moreInfoLink)).click();
         wait.until(ExpectedConditions.urlContains("help/poryadok-oplaty-i-bezopasnost-internet-platezhey"));
+    }
+
+    public String getBreadcrumbThirdItemText() {
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(breadcrumbThirdItem)).getText().trim();
     }
 
     public void selectServiceType(String serviceName) {

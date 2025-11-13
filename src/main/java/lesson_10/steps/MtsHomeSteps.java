@@ -33,6 +33,10 @@ public class MtsHomeSteps {
         homePage.clickMoreInfo();
     }
 
+    public String getBreadcrumbThirdItemText() {
+        return homePage.getBreadcrumbThirdItemText();
+    }
+
     public String getSelectedServiceLabel() {
         return homePage.getSelectedServiceLabel();
     }
