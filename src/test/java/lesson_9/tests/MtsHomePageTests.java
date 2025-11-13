@@ -44,7 +44,7 @@ public class MtsHomePageTests extends BaseTest {
                         .contains("https://www.mts.by/help/poryadok-oplaty-i-bezopasnost-internet-platezhey/"),
                 "Не произошёл переход на страницу 'Подробнее'");
         String breadcrumbText = steps.getBreadcrumbThirdItemText();
-        assertEquals("Оплата и безопасность интернет‑платежей", breadcrumbText,
+        assertEquals("Порядок оплаты и безопасность интернет платежей", breadcrumbText,
                 "Текст третьего пункта навигационной цепочки некорректен");
     }
 
